@@ -1,0 +1,24 @@
+Source: k9copy
+Section: video
+Priority: optional
+Maintainer: Eshat Cakar <info@eshat.de>
+Build-Depends: debhelper (>= 8.0.0), kdelibs5-dev (>= 4:4.2.1), pkg-kde-tools,
+ cmake, libxine-dev, libmpeg2-4-dev, libavformat-dev, libx11-dev
+Standards-Version: 3.9.2
+Homepage: http://k9copy.sourceforge.net/
+
+Package: k9copy
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dvd+rw-tools, dvdauthor, 
+ mencoder
+Suggests: ffmpeg
+Description: KDE tool to backup DVDs
+ k9copy provides the following features:
+  - The video stream can be compressed to make the video fit on any 
+    configurable target size
+  - DVD Burning
+  - Transcode DVD using mencoder or ffmpeg with configurable presets
+  - Creation of ISO images
+  - The possibility of choosing which audio and subtitle tracks to copy
+  - Title preview (video only)
+  - The ability to preserve the original menus

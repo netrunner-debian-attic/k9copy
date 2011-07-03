@@ -1,0 +1,6 @@
+k9copy (2.3.7-1) unstable; urgency=low
+
+  * Initial release. (Closes: #320045)
+  * Make .Desktop files follow  FreeDesktop specification
+  
+ -- Eshat Cakar <info@eshat.de>  Tue, 28 Jun 2011 15:23:11 +0200
