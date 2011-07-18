@@ -1,3 +1,11 @@
+k9copy (2.3.7-2) unstable; urgency=low
+
+  * Add libswscale to build-deps and fix lib names,
+    so that DVDauthor mode works (Closes: #634249)
+  * Add debug package
+
+ -- Eshat Cakar <info@eshat.de>  Mon, 18 Jul 2011 22:33:01 +0200
+
 k9copy (2.3.7-1) unstable; urgency=low
 
   * Initial release. (Closes: #320045)
