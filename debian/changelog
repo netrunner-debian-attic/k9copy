@@ -1,14 +1,15 @@
 k9copy (2.3.7-2) unstable; urgency=low
 
-  * Add libswscale to build-deps and fix lib names,
+  * Add libswscale to build-deps and fix called ffmpeg library names,
     so that DVDauthor mode works (Closes: #634249)
+  * Add wodim and genisofs to Recommends (Closes: #634387)
   * Add debug package
 
- -- Eshat Cakar <info@eshat.de>  Mon, 18 Jul 2011 22:33:01 +0200
+ -- Eshat Cakar <info@eshat.de>  Thu, 28 Jul 2011 23:44:44 +0200
 
 k9copy (2.3.7-1) unstable; urgency=low
 
   * Initial release. (Closes: #320045)
   * Make .Desktop files follow  FreeDesktop specification
-  
+
  -- Eshat Cakar <info@eshat.de>  Tue, 28 Jun 2011 15:23:11 +0200

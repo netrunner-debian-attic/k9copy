@@ -23,6 +23,8 @@ Depends: ${shlibs:Depends},
 	 dvdauthor, 
 	 mencoder, 
 	 ffmpeg
+Recommends: genisoimage,
+	    wodim
 Description: KDE tool to backup DVDs
  k9copy provides the following features:
   - The video stream can be compressed to make the video fit on any 
