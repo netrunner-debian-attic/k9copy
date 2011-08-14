@@ -1,3 +1,9 @@
+k9copy (2.3.7-3) unstable; urgency=low
+
+  * Fix FTBFS on kfreebsd, thanks Christoph Egger (Closes: #637773)
+
+ -- Eshat Cakar <info@eshat.de>  Sun, 14 Aug 2011 21:43:11 +0200
+
 k9copy (2.3.7-2) unstable; urgency=low
 
   * Add libswscale to build-deps and fix called ffmpeg library names,
