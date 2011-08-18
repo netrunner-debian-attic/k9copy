@@ -2,3 +2,4 @@ fix-ftbfs-kfreebsd.patch
 fix-ffmpeg-lib-names.patch
 german-spelling-error.patch
 fix-desktop-files.patch
+rename_deprecated_var.patch
