@@ -1,4 +1,4 @@
-k9copy (2.3.7-3) experimental; urgency=low
+k9copy (2.3.7-3) unstable; urgency=low
 
   * Fix FTBFS on kfreebsd, thanks Christoph Egger (Closes: #637773)
   * Make package libav comform (Closes: #638248)
