@@ -242,8 +242,8 @@ void k9AviDecode::readFrame(double _seconds) {
         // Is this a packet from the video stream?
         if (packet.stream_index==m_videoStream) {
             // Decode video frame
-            avcodec_decode_video2(m_CodecCtx, m_Frame, &frameFinished,
-                                 &packet);
+            avcodec_decode_video(m_CodecCtx, m_Frame, &frameFinished,
+                                 packet.data, packet.size);
 
             // Did we get a video frame?
             if (frameFinished) {

@@ -1,3 +1,4 @@
+fix_deprecated_func.patch
 fix-ftbfs-kfreebsd.patch
 german-spelling-error.patch
 fix-desktop-files.patch
