@@ -1,0 +1,35 @@
+Lintian says, these do no belong the FreeDesktop specs
+--- a/k9copy.desktop
++++ b/k9copy.desktop
+@@ -1,6 +1,4 @@
+-#!/usr/bin/env xdg-open
+ [Desktop Entry]
+-Encoding=UTF-8
+ Type=Application
+ Name=k9copy
+ Exec=k9copy -caption "%c" %i %m  %u
+@@ -12,7 +10,6 @@
+ GenericName[fr]=Backup de DVD Video
+ GenericName[tr]=DVD Vidyo Yedekleme Aracı
+ GenericName[ru]=Копирование с видео-DVD
+-MimeTypes=
+ Terminal=false
+ Icon=k9copy
+ X-DocPath=k9copy/index.html
+--- a/k9copy_assistant.desktop
++++ b/k9copy_assistant.desktop
+@@ -1,6 +1,4 @@
+-#!/usr/bin/env xdg-open
+ [Desktop Entry]
+-Encoding=UTF-8
+ Type=Application
+ Name=k9copy assistant
+ Exec=k9copy --assistant -caption "%c" %i %m  %u
+@@ -12,7 +10,6 @@
+ GenericName[fr]=Backup de DVD Video
+ GenericName[tr]=DVD Vidyo Yedekleme Aracı
+ GenericName[ru]=Копирование с видео-DVD
+-MimeTypes=
+ Terminal=false
+ Icon=k9copy
+ X-DocPath=k9copy/index.html

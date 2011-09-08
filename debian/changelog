@@ -1,0 +1,23 @@
+k9copy (2.3.7-3) unstable; urgency=low
+
+  * Fix FTBFS on kfreebsd, thanks to Christoph Egger (Closes: #637773)
+  * Prepare package for libav (Closes: #638248)
+  * Link directly agains libav*, thanks to Reinhard Tartler
+
+ -- Eshat Cakar <info@eshat.de>  Sun, 21 Aug 2011 22:00:49 +0200
+
+k9copy (2.3.7-2) unstable; urgency=low
+
+  * Add libswscale to build-deps and fix called ffmpeg library names,
+    so that DVDauthor mode works (Closes: #634249)
+  * Add wodim and genisofs to Recommends (Closes: #634387)
+  * Add debug package
+
+ -- Eshat Cakar <info@eshat.de>  Thu, 28 Jul 2011 23:44:44 +0200
+
+k9copy (2.3.7-1) unstable; urgency=low
+
+  * Initial release. (Closes: #320045)
+  * Make .Desktop files follow  FreeDesktop specification
+
+ -- Eshat Cakar <info@eshat.de>  Tue, 28 Jun 2011 15:23:11 +0200

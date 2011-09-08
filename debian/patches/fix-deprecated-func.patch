@@ -1,0 +1,14 @@
+Function has been deprecated for a long time
+--- a/src/import/k9avidecode.cpp
++++ b/src/import/k9avidecode.cpp
+@@ -242,8 +242,8 @@
+         // Is this a packet from the video stream?
+         if (packet.stream_index==m_videoStream) {
+             // Decode video frame
+-            avcodec_decode_video(m_CodecCtx, m_Frame, &frameFinished,
+-                                 packet.data, packet.size);
++            avcodec_decode_video2(m_CodecCtx, m_Frame, &frameFinished,
++                                 &packet);
+ 
+             // Did we get a video frame?
+             if (frameFinished) {
