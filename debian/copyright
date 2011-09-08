@@ -1,0 +1,115 @@
+This package was debianized by Steve Stalcup <vorian@kubuntu.org> on
+Wed, 07 May 2008 14:48:00 -0400.
+
+It was downloaded from http://k9copy.sourceforge.net/
+
+Upstream Author: 
+      Jean-Michel Petit <jm_petit@laposte.net> 
+
+Copyright: 
+      © 2008 Jean-Michel Petit <jm_petit@laposte.net> 
+
+License:
+
+    | This program is free software; you can redistribute it and/or modify
+    | it under the terms of the GNU General Public License as published by
+    | the Free Software Foundation; version 2 dated June, 1991.
+    |
+    | This package is distributed in the hope that it will be useful,
+    | but WITHOUT ANY WARRANTY; without even the implied warranty of
+    | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    | GNU General Public License for more details.
+    |
+    | You should have received a copy of the GNU General Public License
+    | along with this program; if not, write to the Free Software Foundation,
+    | Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
+  The full text of the GNU General Public License version 2 is available on
+  Debian systems in /usr/share/common-licenses/GPL-2.
+
+The Following files are licenced under the GNU General Public License version 2
+
+ * core/bswap.h 
+ * mpeg2/bswap.h 
+Are copyrighted © 2000-2001 by Billy Biggs <vektor@dumbterm.net>
+
+ * dvdnav/vm.h 
+ * dvdnav/vm.c 
+ * dvdnav/dvdnav.h 
+ * dvdnav/highlight.c 
+ * dvdnav/navigation.c 
+ * dvdnav/dvdnav_events.h 
+ * dvdnav/read_cache.h 
+ * dvdnav/dvdnav_internal.h 
+ * dvdnav/read_cache.c 
+ * dvdnav/dvdnav.c 
+ * dvdnav/settings.c 
+ * dvdnav/searching.c 
+Are copyrighted © 2000 by Rich Wareham <richwareham@users.sourceforge.net>
+
+ * dvdnav/decoder.h
+ * dvdnav/vmcmd.h
+ * dvdnav/decoder.c
+ * dvdnav/vmcmd.c
+ * dvdnav/vm.h 
+ * dvdnav/vm.c 
+ * dvdnav/dvd_types.h
+Are copyrighted © 2000-2001 by Håkan Hjort
+
+ * dvdnav/decoder.h 
+ * dvdnav/vmcmd.h 
+ * dvdnav/decoder.c 
+ * dvdnav/vmcmd.c 
+Are copyrighted © 2000-2001 by Martin Norbå
+
+ * vamps/ac.h 
+Is copyrighted © 2002 by Thomas Astreich
+
+ * dvdnav/dvd_types.h 
+Is copyrighted © 2000-2001 by Bjrn Englund
+
+ * mpeg2/motion_comp_alpha.cpp 
+Is copyrighted © 2002-2003 by Falk Hueffner <falk@debian.org>
+
+ * dvdnav/compat.h 
+Is copyrighted © 2000-2001 by the xine project
+
+ * mpeg2/rgb_mmx.cpp 
+Is copyrighted © 2000-2003 by Silicon Integrated System Corp
+
+ * mpeg2/motion_comp_vis.cpp 
+ * mpeg2/vis.h 
+ * mpeg2/rgb_vis.cpp 
+Are copyrighted © 2003 by David S. Miller <davem@redhat.com>
+
+ * mpeg2/motion_comp_alpha.cpp 
+Is copyrighted © 2002-2003 by Falk Hueffner <falk@debian.org>
+
+ * mpeg2/mpeg2_internal.h 
+ * mpeg2/motion_comp_altivec.cpp
+ * mpeg2/idct_alpha.cpp 
+ * mpeg2/vlc.h 
+ * mpeg2/slice.cpp 
+ * mpeg2/idct_altivec.cpp 
+ * mpeg2/header.cpp 
+ * mpeg2/decode.cpp 
+ * mpeg2/rgb.cpp 
+ * mpeg2/cpu_state.cpp 
+ * mpeg2/idct.cpp 
+ * mpeg2/convert_internal.h 
+ * mpeg2/motion_comp_mmx.cpp 
+ * mpeg2/tendra.h 
+ * mpeg2/mmx.h 
+ * mpeg2/mpeg2convert.h 
+ * mpeg2/cpu_accel.cpp 
+ * mpeg2/video_out.h 
+ * mpeg2/uyvy.cpp  
+ * mpeg2/mpeg2.h  
+ * mpeg2/motion_comp.cpp 
+ * mpeg2/alloc.cpp  
+ * mpeg2/attributes.h 
+Are copyrighted © 1999-2000 by Aaron Holtzman and
+<aholtzma@ess.engr.uvic.ca> and 2000-2003 by Michel Lespinasse <walken@zoy.org>
+
+The Debian packaging is © 2008, Steve Stalcup <vorian@kubuntu.org> and
+© 2011, Eshat Cakar <info@eshat.de> and is licensed under the GPL-2, see above.
