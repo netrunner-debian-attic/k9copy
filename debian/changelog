@@ -1,3 +1,10 @@
+k9copy (2.3.8-1) unstable; urgency=low
+
+  * New upstream version.
+  * Remove rename_deprecated_var.patch, applied upstream.
+	
+ -- Eshat Cakar <info@eshat.de>  Tue, 03 Jan 2012 15:58:42 +0100
+
 k9copy (2.3.7-3) unstable; urgency=low
 
   * Fix FTBFS on kfreebsd, thanks to Christoph Egger (Closes: #637773)
