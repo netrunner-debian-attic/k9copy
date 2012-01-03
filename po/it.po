@@ -862,7 +862,7 @@ msgid "ERROR reading block %1\n"
 msgstr "ERRORE nella lettura del blocco %1\n"
 
 #: lib/import/k9avidecode.cpp:31 lib/import/k9avidecode.cpp:35
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "Impossibile aprire la libreria %1"
 
 #: lib/import/k9avidecode.cpp:88
@@ -882,7 +882,7 @@ msgid "Unsupported codec"
 msgstr "Codec non supportato"
 
 #: lib/import/k9avidecode.cpp:122
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "Non posso aprire il codec"
 
 #: lib/import/k9avidecode.cpp:133

@@ -3,8 +3,9 @@ project(k9copy)
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
+SET (BACKLITE FALSE)
 
- SET(CMAKE_BUILD_TYPE Debug)
+#SET(CMAKE_BUILD_TYPE Debug)
 
 find_package(KDE4 REQUIRED)
 include (KDE4Defaults)
@@ -20,7 +21,7 @@ INCLUDE(FindAvformat)
 INCLUDE(FindFFmpegScale)
 #INCLUDE(FindLibDvdread)
 
-set (VERSION 2.3.7)
+set (VERSION 2.3.8)
 
 
 
@@ -366,14 +367,12 @@ install( FILES k9copyui.rc  DESTINATION  ${DATA_INSTALL_DIR}/k9copy )
 install(FILES k9copy_open.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
 install(FILES k9copy_assistant_open.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
 
-
 kde4_install_icons( ${ICON_INSTALL_DIR} )
-
 
 ############package###############
 SET(CPACK_PACKAGE_VERSION_MAJOR "2")
 SET(CPACK_PACKAGE_VERSION_MINOR "3")
-SET(CPACK_PACKAGE_VERSION_PATCH "7")
+SET(CPACK_PACKAGE_VERSION_PATCH "8")
 SET(CPACK_PACKAGE_NAME "k9copy")
 SET(CPACK_SOURCE_IGNORE_FILES
 "moc_"

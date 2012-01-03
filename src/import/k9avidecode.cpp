@@ -43,20 +43,22 @@ k9AviDecode::k9AviDecode(QObject *parent, const char *)
         CodecHandle=dlopen("libavcodec.so",RTLD_LAZY ); //| RTLD_GLOBAL
         FormatHandle=dlopen("libavformat.so",RTLD_LAZY);
 #ifdef HAVE_SWSCALE
-	SwscaleHandle=dlopen("libswscale.so",RTLD_LAZY);
+        SwscaleHandle=dlopen("libswscale.so",RTLD_LAZY);
+        if (SwscaleHandle==0)
+            SwscaleHandle=dlopen("libswscale.so.2",RTLD_LAZY);
 #endif
     }
     m_error="";
     QStringList errs;
     if (!CodecHandle) {
-        errs << i18n("Cannot open then library %1").arg("libavcodec");
+        errs << i18n("Cannot open the library %1").arg("libavcodec");
     }
     if (!FormatHandle ) {
-        errs << i18n("Cannot open then library %1").arg("libavformat");
+        errs << i18n("Cannot open the library %1").arg("libavformat");
     }
 #ifdef HAVE_SWSCALE
     if (!SwscaleHandle) {
-        errs << i18n("Cannot open then library %1").arg("libswscale");
+        errs << i18n("Cannot open the library %1").arg("libswscale");
     }
 #endif
 
@@ -71,11 +73,12 @@ k9AviDecode::k9AviDecode(QObject *parent, const char *)
     avpicture_fill = (avpicture_fill_t)dlsym(CodecHandle,"avpicture_fill");
     av_read_frame = (av_read_frame_t)dlsym(FormatHandle,"av_read_frame");
     avcodec_decode_video = (avcodec_decode_video_t)dlsym(CodecHandle,"avcodec_decode_video");
+    if (avcodec_decode_video==0) avcodec_decode_video=(avcodec_decode_video_t)dlsym(CodecHandle,"avcodec_decode_video2");
 #ifndef HAVE_SWSCALE
     img_convert = (img_convert_t)dlsym(CodecHandle,"img_convert");
 //if img_convert is null (deprecated in ffmpeg), we need libswscale
     if (!img_convert)
-      errs << i18n("Cannot open then library %1").arg("libswscale");
+      errs << i18n("Cannot open the library %1").arg("libswscale");
 #endif
     av_free = (av_free_t)dlsym(CodecHandle,"av_free");
     av_free_packet = (av_free_packet_t)dlsym(CodecHandle,"av_free_packet");
@@ -145,7 +148,7 @@ bool k9AviDecode::open(const QString & _fileName) {
 // Find the first video stream
     m_videoStream=-1;
     for (i=0; i<m_FormatCtx->nb_streams; i++)
-        if (m_FormatCtx->streams[i]->codec->codec_type==CODEC_TYPE_VIDEO) {
+        if (m_FormatCtx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO) {
             m_videoStream=i;
             break;
         }

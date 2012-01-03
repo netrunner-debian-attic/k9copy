@@ -863,7 +863,7 @@ msgid "ERROR reading block %1\n"
 msgstr "Greška pri čitanju bloka %1\n"
 
 #: lib/import/k9avidecode.cpp:31 lib/import/k9avidecode.cpp:35
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "Ne mogu da otvorim biblioteku %1"
 
 #: lib/import/k9avidecode.cpp:88
@@ -883,7 +883,7 @@ msgid "Unsupported codec"
 msgstr "Nepodržani kodek"
 
 #: lib/import/k9avidecode.cpp:122
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "Ne mogu da otvorim kodek"
 
 #: lib/import/k9avidecode.cpp:133

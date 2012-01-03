@@ -31,9 +31,18 @@
 #include <stdlib.h>
 #include <time.h>
 #include <QProcess>
+#include <QThread>
+
 QStringList m_temporaryDirs;
 QString g_password="";
 bool gBatchCopy=false;
+Qt::HANDLE g_mainThread;
+
+void k9Tools::setMainThread(){
+    g_mainThread=QThread::currentThreadId();
+}
+
+static bool isMainThread();
 
 const QString  k9Tools::getTempPath() {
 QString sPath;
@@ -50,8 +59,10 @@ void k9Tools::addTemporaryDir(const QString & dir) {
 }
 
 void k9Tools::processEvents() {
-    qApp->processEvents(QEventLoop::AllEvents,1);
-
+    if (QThread::currentThreadId()== g_mainThread)
+        qApp->processEvents(QEventLoop::AllEvents,1);
+    else
+        qDebug() << "Not the main thread processEvents skipped";
 }
 
 bool k9Tools::getBatchCopy() {

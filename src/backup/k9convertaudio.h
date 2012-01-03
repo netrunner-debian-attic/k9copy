@@ -52,6 +52,7 @@ private:
     QStringList m_output;
     QWaitCondition m_dataReady;
     QEventLoop m_eventLoop;
+    QMutex m_mutex;
     QString m_fps;
     bool m_debug;
     bool m_error;

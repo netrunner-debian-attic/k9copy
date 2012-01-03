@@ -810,10 +810,6 @@ int k9MP4Enc::getBitRate(k9DVDTitle *_title) {
 }
 
 
-
-
-
-
 void k9MP4Enc::timerDone() {
     if (m_player) {
         if (m_converters[BASE_CONV_VIDEO])
@@ -836,6 +832,7 @@ void k9MP4Enc::timerDone() {
         m_progress->setProgress((int)m_percent);
         m_progress->setremain(time2.toString("hh:mm:ss") +" / " +m_remain);
         m_progress->setImage(m_player->getSaveImage()->getFileName());
+       // m_progress->Update();
     }
 }
 

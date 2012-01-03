@@ -65,7 +65,11 @@ void k9DVDRead::openDevice(const QString & _device) {
     
             for (int iTS=1 ; iTS<=nrTS;iTS++) {
                 k9Ifo2 *ifo=new k9Ifo2(this);
-                ifo->openIFO(iTS);
+                if (!ifo->openIFO(iTS)) {
+                    close();
+                    return;
+                }
+
                 m_ifos.append(ifo);
             }
         }

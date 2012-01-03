@@ -856,7 +856,7 @@ msgid "ERROR reading block %1\n"
 msgstr "讀取區塊 %1 時發生錯誤\n"
 
 #: lib/import/k9avidecode.cpp:31 lib/import/k9avidecode.cpp:35
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "無法開啟涵式庫 %1"
 
 #: lib/import/k9avidecode.cpp:88
@@ -876,7 +876,7 @@ msgid "Unsupported codec"
 msgstr "不支援的解碼器"
 
 #: lib/import/k9avidecode.cpp:122
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "無法開啟解碼器"
 
 #: lib/import/k9avidecode.cpp:133

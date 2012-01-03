@@ -132,11 +132,10 @@ void k9BackupDlg::updateMe() {
     ui_backupDlg.pbStep->setMaximum(m_totalSteps);
     ui_backupDlg.lblFactor->setText(m_factor);
     ui_backupDlg.pbStep->setValue(m_progress);
-
-
 }
 
 void k9BackupDlg::timerDone() {
+    m_mutex.lock();
     QTime time2(0,0);
     time2=time2.addMSecs(time.elapsed());
     QString remain("--:--:--");
@@ -148,31 +147,41 @@ void k9BackupDlg::timerDone() {
 
     ui_backupDlg.lblTime->setText(time2.toString("hh:mm:ss") +" / " +remain);
     updateMe();
+    m_mutex.unlock();
 }
 
 void k9BackupDlg::setTotalSteps(uint32_t _totalSteps) {
+    m_mutex.lock();
     m_totalSteps=_totalSteps;
+    m_mutex.unlock();
 }
 
 void k9BackupDlg::setProgress(uint32_t _position) {
+    m_mutex.lock();
     m_progress=_position;
+    m_mutex.unlock();
 }
 
 void k9BackupDlg::setTotalMax(uint32_t _max) {
+    m_mutex.lock();
     ui_backupDlg.pbTotal->setMaximum(_max);
+    m_mutex.unlock();
 }
 
 void k9BackupDlg::setProgressTotal(uint32_t _position) {
+    m_mutex.lock();
     totalCopied+=_position;
     uint64_t total=totalCopied*2048;
     total/=(1024*1024);
     m_progressTotal=total;
-
+    m_mutex.unlock();
 }
 
 void k9BackupDlg::setProgressLabel(QString _text) {
+    m_mutex.lock();
     m_progressLabel=_text;
     update();
+    m_mutex.unlock();
 }
 
 bool k9BackupDlg::getAbort() {
@@ -186,7 +195,9 @@ void k9BackupDlg::bAbortClick() {
 }
 
 void k9BackupDlg::setFactor(QString _factor) {
+    m_mutex.lock();
     m_factor=_factor;
+    m_mutex.unlock();
 }
 
 
