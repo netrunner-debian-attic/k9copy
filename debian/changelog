@@ -1,11 +1,15 @@
 k9copy (2.3.8-1) unstable; urgency=low
 
   * New upstream version.
+    - improved stability when ripping DVD
+    - fixed crash that occured when trying to open a protected DVD
+    - fixed compatibility with ffmpeg
+    - new translations (uk)
   * Remove rename_deprecated_var.patch, applied upstream.
   * Fix "FTBFS with libav in experimental" by including 
     libavutil/mathematics.h in link_libav_directly.patch (Closes: #654232)
 
- -- Eshat Cakar <info@eshat.de>  Tue, 03 Jan 2012 15:58:42 +0100
+ -- Eshat Cakar <info@eshat.de>  Tue, 03 Jan 2012 21:04:14 +0100
 
 k9copy (2.3.7-3) unstable; urgency=low
 
