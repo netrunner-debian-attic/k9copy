@@ -5013,7 +5013,7 @@ msgstr ""
 #: RPM/SOURCES/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:33
 #: RPM/SOURCES/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:37
 #: RPM/SOURCES/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:46
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "Невозможно открыть библиотеку %1"
 
 #: Documents/111111/k9copy-2.3.5-Source/k9copy-2.3.5/src/import/k9avidecode.cpp:135
@@ -5073,7 +5073,7 @@ msgstr "Неподдерживаемый кодек"
 #: k9copy/tags/k9copy-2.3.5/src/import/k9avidecode.cpp:169
 #: RPM/BUILD/k9copy-2.3.5/src/import/k9avidecode.cpp:169
 #: RPM/SOURCES/k9copy-2.3.5/src/import/k9avidecode.cpp:169
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "Невозможно открыть кодек"
 
 #: Documents/111111/k9copy-2.3.5-Source/k9copy-2.3.5/src/import/k9avidecode.cpp:180
@@ -6553,18 +6553,6 @@ msgstr "не сохранять статус при выходе"
 #: RPM/SOURCES/k9copy-2.3.5/src/player/main.cpp:69
 msgid "save cell in a temporary file before encoding"
 msgstr "перед кодированием сохранить ячейку во временном файле "
-
-#: Documents/111111/k9copy-2.3.5-Source/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/backlite/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/kde4/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/tags/backlite-0.2.0/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/tags/backlite-1.0.0/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/tags/k9copy-2.3.4/src/vamps/k9ffmpeg.cpp:41
-#: k9copy/tags/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:41
-#: RPM/BUILD/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:41
-#: RPM/SOURCES/k9copy-2.3.5/src/vamps/k9ffmpeg.cpp:41
-msgid "Cannot open the library %1"
-msgstr "Невозможно открыть библиотеку %1"
 
 #: Documents/111111/k9copy-2.3.5-Source/k9copy-2.3.5/src/xine/main.cpp:50
 #: k9copy/kde4/src/xine/main.cpp:50

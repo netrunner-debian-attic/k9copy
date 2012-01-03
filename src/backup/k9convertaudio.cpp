@@ -119,15 +119,17 @@ void k9ConvertAudio::run() {
         size=qMin(size,4096);
 
         if (size >0 ) {
+            m_mutex.lock();
             while (m_process->isRunning()) {
                 if (m_process->bytesToWrite() >size)
                     m_process->waitForBytesWritten(-1);
                 else
                     break;
             }
+            m_mutex.unlock();
             uchar  buffer[size];
             //m_fifo->dequeue(buffer,size);
-	    m_fifo->readData(buffer,size);
+            m_fifo->readData(buffer,size);
 	    if (m_process->isRunning())
                m_process->write((char*)buffer,size);
             //m_dataReady.wakeAll();

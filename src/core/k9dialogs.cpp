@@ -26,11 +26,13 @@
 #include <QFileDialog>
 #include <QFontDialog>
 #include <QMessageBox>
+#include "notification.h"
 #else
 #include <KDialog>
 #include <KFileDialog>
 #include <KMessageBox>
 #include <KFontDialog>
+#include <KNotification>
 #endif
 #include <QApplication>
 #include "k9tools.h"
@@ -81,13 +83,30 @@ void k9Dialogs::error(const QString &_message,const QString &_title,const QStrin
     if (activeWindow==0)
 	activeWindow=k9MainWidget;
 
+    QStringList body;
+    body << "<b>"+_message +"</b>" << "" ;
+    body << _detail;
 
 #ifdef BACKLITE
     QMessageBox message(QMessageBox::Critical,_title,_message,QMessageBox::Ok,activeWindow) ;
     if (!_detail.isEmpty())
         message.setDetailedText(_detail.join("\n\r"));
+
+    Notification *n=new Notification("Backlite - "+_title,_message,"backlite");
+
+    n->setBody(body.join("<br>"));
+    n->setUrgency(NOTIFICATION_URGENCY_CRITICAL);
+    n->setTimeout(5000);
+    n->show();
+    delete n;
+
     message.exec();
 #else
+
+    KNotification *notify=KNotification::event(KNotification::Error,_title,body.join("<br>"),KIcon("k9copy").pixmap(48));
+    notify->setText(body.join("<br>"));
+    notify->setTitle(_title);
+    notify->sendEvent();
     KMessageBox::errorList(activeWindow,_message,_detail,_title);
 #endif
 }
@@ -102,8 +121,16 @@ void k9Dialogs::information(const QString &_message, const QString &_title) {
     if (activeWindow==0)
 	activeWindow=k9MainWidget;
 #ifdef BACKLITE
+    Notification *n=new Notification("Backlite - "+_title,_message,"backlite");
+    n->setTimeout(5000);
+    n->show();
+    delete n;
     QMessageBox::information ( activeWindow,_title, _message);
 #else
+    KNotification *notify=KNotification::event(KNotification::Notification ,_title,_message,KIcon("k9copy").pixmap(48));
+    notify->sendEvent();
+    notify->activate();
+
     KMessageBox::information(activeWindow,_message,_title);
 #endif
 }

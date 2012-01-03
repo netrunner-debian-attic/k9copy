@@ -862,7 +862,7 @@ msgid "ERROR reading block %1\n"
 msgstr "Blok %1 okunurken hata oluştu\n"
 
 #: lib/import/k9avidecode.cpp:31 lib/import/k9avidecode.cpp:35
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "%1 kitaplığı açılamıyor"
 
 #: lib/import/k9avidecode.cpp:88
@@ -882,7 +882,7 @@ msgid "Unsupported codec"
 msgstr "Desteklenmeyen çözücü"
 
 #: lib/import/k9avidecode.cpp:122
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "Çözücü açılamadı"
 
 #: lib/import/k9avidecode.cpp:133

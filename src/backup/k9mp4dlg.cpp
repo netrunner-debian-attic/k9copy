@@ -37,7 +37,11 @@ k9MP4Dlg::k9MP4Dlg(QWidget* parent)
     l->setMargin(0);
     l->addWidget(log, 0, 0, 1, 1);
 
+    m_update=true;
     m_timer.start();
+    m_timerUpdate.setInterval(200);
+    connect(&m_timerUpdate,SIGNAL(timeout()),this,SLOT(Update()));
+    m_timerUpdate.start();
 #ifndef BACKLITE
     Ui_MP4Dlg.bCancel->setGuiItem(KStandardGuiItem::Stop);
 #else
@@ -51,43 +55,62 @@ k9MP4Dlg::~k9MP4Dlg() {
 
 /*$SPECIALIZATION$*/
 
+void k9MP4Dlg::Update() {
+    if (m_update) {
+        m_update=false;
+        Ui_MP4Dlg.lblTitle->setText(m_titleLabel);
+        Ui_MP4Dlg.lblfps->setText(m_fps);
+        Ui_MP4Dlg.lblRemain->setText(m_remain);
+        Ui_MP4Dlg.pbProgress->setValue(m_progress);
+        Ui_MP4Dlg.lblbitrate->setText(m_bitrate);
+        Ui_MP4Dlg.lblsize->setText(m_size);
+        Ui_MP4Dlg.lbllabelSize->setHidden(m_size.isEmpty());
+        m_wimage->setImage(m_fileName);
+    }
+
+}
+
 void k9MP4Dlg::Cancel() {
     //QDialog::accept();
     emit sigCancel();
 }
 
 void k9MP4Dlg::setTitleLabel(QString _titleLabel) {
-    Ui_MP4Dlg.lblTitle->setText(_titleLabel);
+     m_titleLabel=_titleLabel;
+     m_update=true;
 }
 
 
 void k9MP4Dlg::setfps(QString _fps) {
-    Ui_MP4Dlg.lblfps->setText(_fps);
+    m_fps=_fps;
+    m_update=true;
 }
 
 void k9MP4Dlg::setremain(QString _remain) {
     if (m_timer.elapsed() >=1000) {
-        Ui_MP4Dlg.lblRemain->setText(_remain);
+        m_remain=_remain;
         m_timer.restart();
     }
 }
 
 void k9MP4Dlg::setProgress(int _progress) {
-    Ui_MP4Dlg.pbProgress->setValue(_progress);
-
+   m_progress=_progress;
+    m_update=true;
 }
 
 void k9MP4Dlg::setbitrate(QString _bitrate) {
-    Ui_MP4Dlg.lblbitrate->setText(_bitrate);
+   m_bitrate=_bitrate;
+   m_update=true;
 }
 
 void k9MP4Dlg::setsize( QString _size) {
-    Ui_MP4Dlg.lblsize->setText(_size);
-    Ui_MP4Dlg.lbllabelSize->setHidden(_size.isEmpty());
+    m_size=_size;
+    m_update=true;
 }
 
 
 void k9MP4Dlg::setImage(QString _fileName) {
-    m_wimage->setImage(_fileName);
+   m_fileName=_fileName;
+   m_update=true;
 }
 

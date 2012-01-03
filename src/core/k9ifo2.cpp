@@ -63,11 +63,13 @@ uint32_t k9Ifo2::getSize() {
  */
 ifo_handle_t * k9Ifo2::openIFO(int _num) {
     _ifo = ifoOpen(m_dvd->getDvd(), _num);
+    if (_ifo) {
     numIfo=_num;
-    if( _ifo->vtsi_mat)
-        m_size=_ifo->vtsi_mat->vtsi_last_sector +1;
-    else
-        m_size=_ifo->vmgi_mat->vmgi_last_sector+1;
+       if( _ifo->vtsi_mat)
+           m_size=_ifo->vtsi_mat->vtsi_last_sector +1;
+       else
+           m_size=_ifo->vmgi_mat->vmgi_last_sector+1;
+    }
     return _ifo;
 
 }

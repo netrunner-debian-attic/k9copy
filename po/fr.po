@@ -3833,7 +3833,7 @@ msgstr ""
 #: src/import/k9avidecode.cpp:52 src/import/k9avidecode.cpp:55
 #: src/import/k9avidecode.cpp:59 src/vamps/k9ffmpeg.cpp:33
 #: src/vamps/k9ffmpeg.cpp:37 src/vamps/k9ffmpeg.cpp:46
-msgid "Cannot open then library %1"
+msgid "Cannot open the library %1"
 msgstr "Impossible d'ouvrir la librairie %1"
 
 #: src/import/k9avidecode.cpp:130
@@ -3853,7 +3853,7 @@ msgid "Unsupported codec"
 msgstr "Codec non supporté"
 
 #: src/import/k9avidecode.cpp:164
-msgid "Could'nt open the codec"
+msgid "Couldn't open the codec"
 msgstr "Ne peut ouvrir le codec"
 
 #: src/import/k9avidecode.cpp:175
@@ -4182,10 +4182,6 @@ msgstr "Ne pas conserver l'état à la fin"
 #: src/player/main.cpp:69
 msgid "save cell in a temporary file before encoding"
 msgstr "sauvegarde de la cellule dans un fichier temporaire avant l'encodage"
-
-#: src/vamps/k9ffmpeg.cpp:41
-msgid "Cannot open the library %1"
-msgstr "Impossible d'ouvrir la librairie %1"
 
 #: src/xine/main.cpp:50
 msgid "wid"

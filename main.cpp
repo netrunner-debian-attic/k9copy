@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
       return 1;
     
     KAboutData about("k9copy", 0, ki18n("k9copy"), version, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2004-2010 Jean-Michel PETIT"), KLocalizedString(), 0, "k9copy@free.fr");
+                     KAboutData::License_GPL, ki18n("(C) 2004-2011 Jean-Michel PETIT"), KLocalizedString(), 0, "k9copy@free.fr");
     about.addAuthor( ki18n("Jean-Michel PETIT"), KLocalizedString(), "k9copy@free.fr" );
     about.setTranslator(ki18n("_: NAME OF TRANSLATORS\\nYour names")
                         ,ki18n("_: EMAIL OF TRANSLATORS\\nYour emails"));
@@ -66,6 +66,7 @@ int main(int argc, char **argv) {
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
+    k9Tools::setMainThread();
 
     if (app.isSessionRestored()) {
         RESTORE(k9Copy);

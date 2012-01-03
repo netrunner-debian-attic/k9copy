@@ -38,6 +38,7 @@ public:
    static void processEvents();
    static void setBatchCopy(bool);
    static bool getBatchCopy();
+   static void setMainThread();
 };
 
 #ifdef BACKLITE

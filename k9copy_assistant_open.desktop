@@ -6,6 +6,7 @@ Name[fr]=Copier avec k9copy (wizard)
 Name[de]=Kopieren mit k9copy (wizard)
 Name[tr]=k9copy ile kopyala (wizard)
 Name[ru]=Копировать при помощи k9copy (Мастер)
+NAme[uk]=Копіювати за допомогою майстра k9copy
 
 [Desktop Entry]
 X-KDE-Solid-Predicate=[[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Data|VideoDvd' ] OR [ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Data|VideoDvd' ]]

@@ -19,7 +19,9 @@
 void k9SaveImage::drawImage(QImage *_image) {
     m_cpt++;
     if (m_cpt ==20) {
+     m_mutex.lock();
      m_image=*_image;
+     m_mutex.unlock();
      //m_decoder->pause();
     }
 }
