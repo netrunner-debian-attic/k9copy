@@ -1,2 +1,2 @@
 version=3
-http://sf.net/k9copy/k9copy-(.*)\.tar\.gz debian uupdate
+http://sf.net/k9copy/k9copy-(.*)-Source\.tar\.gz
