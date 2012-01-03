@@ -8,10 +8,10 @@ Lintian says, these do no belong the FreeDesktop specs
  Type=Application
  Name=k9copy
  Exec=k9copy -caption "%c" %i %m  %u
-@@ -12,7 +10,6 @@
- GenericName[fr]=Backup de DVD Video
+@@ -14,7 +12,6 @@
  GenericName[tr]=DVD Vidyo Yedekleme Aracı
  GenericName[ru]=Копирование с видео-DVD
+ GenericName[uk]=Копіювання відео-DVD
 -MimeTypes=
  Terminal=false
  Icon=k9copy
@@ -25,10 +25,10 @@ Lintian says, these do no belong the FreeDesktop specs
  Type=Application
  Name=k9copy assistant
  Exec=k9copy --assistant -caption "%c" %i %m  %u
-@@ -12,7 +10,6 @@
- GenericName[fr]=Backup de DVD Video
+@@ -14,7 +12,6 @@
  GenericName[tr]=DVD Vidyo Yedekleme Aracı
  GenericName[ru]=Копирование с видео-DVD
+ GenericName[uk]=Копіювання відео-DVD
 -MimeTypes=
  Terminal=false
  Icon=k9copy
