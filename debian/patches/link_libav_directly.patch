@@ -155,7 +155,7 @@ Author: Reinhard Tartler
  bool k9AviDecode::open(const QString & _fileName) {
 --- a/src/import/k9avidecode.h
 +++ b/src/import/k9avidecode.h
-@@ -14,49 +14,25 @@
+@@ -14,49 +14,26 @@
  
  #include "k9common.h"
  #include <qobject.h>
@@ -173,6 +173,7 @@ Author: Reinhard Tartler
 +
 +extern "C" {
 +#include <libswscale/swscale.h>
++#include <libavutil/mathematics.h>
 +}
 +
  #endif
