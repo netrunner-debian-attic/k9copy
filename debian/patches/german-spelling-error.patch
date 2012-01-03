@@ -4,7 +4,7 @@ Just a little spelling mistake
 @@ -2560,7 +2560,7 @@
  #: src/import/k9avidecode.cpp:48 src/vamps/k9ffmpeg.cpp:33
  #: src/vamps/k9ffmpeg.cpp:37 src/vamps/k9ffmpeg.cpp:46
- msgid "Cannot open then library %1"
+ msgid "Cannot open the library %1"
 -msgstr "Kann Bibliothek %1 nocht öffnen"
 +msgstr "Kann Bibliothek %1 nicht öffnen"
  
