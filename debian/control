@@ -6,7 +6,6 @@ Build-Depends: debhelper (>= 8.9.0),
 	       kdelibs5-dev (>= 4:4.2.1),
 	       pkg-kde-tools,
  	       cmake,
-	       libxine-dev,
 	       libmpeg2-4-dev,
 	       libavformat-dev,
 	       libavcodec-dev,
@@ -43,6 +42,6 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends: k9copy (= ${binary:Version}), 
-	 ${misc:Depends}
+	 ${misc:Depends},${xine-x:Depends},
 Description: KDE tool to backup DVDs (debugging symbols)
  This package contains the debugging symbols for k9copy
