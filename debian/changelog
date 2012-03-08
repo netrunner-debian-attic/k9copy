@@ -14,6 +14,7 @@ k9copy (2.3.8-1) unstable; urgency=low
   * Remove rename_deprecated_var.patch, applied upstream.
   * Fix "FTBFS with libav in experimental" by including 
     libavutil/mathematics.h in link_libav_directly.patch (Closes: #654232)
+  * Bump compat level to 9, depend on debhelper 8.9.
 
  -- Eshat Cakar <info@eshat.de>  Tue, 03 Jan 2012 21:04:14 +0100
 
