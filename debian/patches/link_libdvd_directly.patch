@@ -1,0 +1,301 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,7 @@ INCLUDE(CheckIncludeFiles)
+ INCLUDE(FindLibMpeg2)
+ INCLUDE(FindXine)
+ INCLUDE(FindFFmpegScale)
+-#INCLUDE(FindLibDvdread)
++INCLUDE(FindLibDvdread)
+ 
+ #use pkg-config to find various modes
+ INCLUDE(FindPkgConfig OPTIONAL)
+@@ -65,11 +65,10 @@ ELSE (LIBDL_LIBRARY)
+   FIND_LIBRARY(LIBDL_LIBRARY NAMES "c" PATHS )
+   MESSAGE(STATUS "Found library libc: ${LIBDL_LIBRARY}")
+ ENDIF (LIBDL_LIBRARY)
+-#FINDLIBDVDREAD("dvdread/ifo_types.h" "dvdread")
++FINDLIBDVDREAD("dvdread/ifo_types.h" "dvdread")
+ 
+ 
+ add_definitions( -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS)
+-add_subdirectory( src/dvdnav)
+ add_subdirectory( src/core )
+ add_subdirectory( src/mpeg2)
+ add_subdirectory(src/vamps)
+@@ -84,7 +83,6 @@ add_subdirectory(po)
+ add_subdirectory(doc)
+ 
+ include_directories(
+- ${CMAKE_CURRENT_SOURCE_DIR}/src/dvdnav
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/devices
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/core
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/vamps
+@@ -96,10 +94,10 @@ include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/import
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/player
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/subtitles
+- ${CMAKE_CURRENT_SOURCE_DIR}/src/dvdread
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/batch
+ ${KDE4_INCLUDES} ${QT_INCLUDES}
+-#${LIBDVDREAD_INCLUDE_DIR}/dvdread
++${LIBDVDREAD_INCLUDE_DIR}/dvdread
++${LIBDVDREAD_INCLUDE_DIR}/dvdnav
+  ${AVCODEC_INCLUDE_DIR}
+  ${AVFORMAT_INCLUDE_DIR}
+  ${FFMPEGSCALE_INCLUDE_DIR}
+@@ -115,34 +113,12 @@ set (subtitles_SRCS
+    src/subtitles/k9subtitle2pgm.cpp
+ )
+ 
+-set (libdvdnav_SRCS
+-   src/dvdnav/decoder.c
+-   src/dvdnav/dvdnav.c
+-   src/dvdnav/highlight.c
+-   src/dvdnav/navigation.c
+-   src/dvdnav/read_cache.c
+-   src/dvdnav/remap.c
+-   src/dvdnav/searching.c
+-   src/dvdnav/settings.c
+-   src/dvdnav/vm.c
+-   src/dvdnav/vmcmd.c
+-)
+-
+ set (vamps_SRCS
+   src/vamps/k9fifo.cpp
+   src/vamps/k9requant.cpp
+   src/vamps/k9vamps.cpp
+ )
+ 
+-set (dvdread_SRCS
+-   src/dvdread/dvd_input.c
+-   src/dvdread/dvd_reader.c
+-   src/dvdread/dvd_udf.c
+-   src/dvdread/ifo_read.c
+-   src/dvdread/md5.c
+-   src/dvdread/nav_read.c
+-)
+-
+ 
+ set (core_SRCS
+   src/core/k9dvd.cpp
+@@ -308,12 +284,10 @@ set (batch_SRCS
+ )
+ 
+ set (k9copylib_SRCS
+-   ${libdvdnav_SRCS}
+    ${core_SRCS}
+    ${vamps_SRCS}
+    ${mpeg2_SRCS}
+    ${subtitles_SRCS}
+-   ${dvdread_SRCS}
+    ${backup_SRCS}
+ )
+ 
+@@ -340,7 +314,7 @@ set (k9xineplayer_SRCS
+ 
+ 
+ kde4_add_library(k9copylib STATIC ${k9copylib_SRCS})
+-target_link_libraries(k9copylib ${KDE4_KDEUI_LIBS} ${KDE4_KDESU_LIBS} ${KDE4_KIO_LIBS} ${LIBMPEG2_LIBRARY} ${LIBMPEG2CONVERT_LIBRARY} ${LIBDL_LIBRARY})
++target_link_libraries(k9copylib ${KDE4_KDEUI_LIBS} ${KDE4_KDESU_LIBS} ${KDE4_KIO_LIBS} ${LIBMPEG2_LIBRARY} ${LIBMPEG2CONVERT_LIBRARY} ${LIBDL_LIBRARY} ${LIBDVDREAD_LIBRARY} dvdnav)
+ 
+ kde4_add_ui_files(k9copy_SRCS )
+ 
+--- a/src/core/k9dvdread.cpp
++++ b/src/core/k9dvdread.cpp
+@@ -10,7 +10,10 @@
+ //
+ //
+ #include "k9dvdread.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include "k9ifo2.h"
+ 
+ k9DVDRead::k9DVDRead(){
+--- a/src/core/k9ifo2.cpp
++++ b/src/core/k9ifo2.cpp
+@@ -19,7 +19,10 @@
+  ***************************************************************************/
+ #include "k9ifo2.h"
+ #include "bswap.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <QDebug>
+ 
+ k9Ifo2::k9Ifo2(k9DVDRead *_dvdread) {
+--- a/src/assistant/k9assistant.cpp
++++ b/src/assistant/k9assistant.cpp
+@@ -23,7 +23,10 @@
+ #include "k9dvd.h"
+ #include "k9cddrive.h"
+ #include "k9execcopy.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include "k9settings.h"
+ #include "k9dvdtitle.h"
+ k9Assistant *k9Assistant::createAssistant() {
+--- a/src/backup/k9dvdbackup.cpp
++++ b/src/backup/k9dvdbackup.cpp
+@@ -40,7 +40,10 @@
+ #endif
+ 
+ #include "k9backupdlg.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include "k9script.h"
+ #include "k9tools.h"
+ 
+--- a/src/backup/k9script.cpp
++++ b/src/backup/k9script.cpp
+@@ -13,7 +13,10 @@
+ #include "k9dvd.h"
+ #include "k9dvdtitle.h"
+ #include "bswap.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <stdlib.h>
+ 
+ k9Script::k9Script(ifo_handle_t *_ifo, k9DVD *_dvd ) {
+--- a/src/import/k9importfiles.cpp
++++ b/src/import/k9importfiles.cpp
+@@ -17,7 +17,10 @@
+ #include "k9tools.h"
+ #include <QDockWidget>
+ #include "images.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <QMenu>
+ #include <QCloseEvent>
+ #ifndef BACKLITE
+--- a/src/import/k9newdvd.cpp
++++ b/src/import/k9newdvd.cpp
+@@ -24,9 +24,10 @@
+ #include <qfileinfo.h>
+ #include "k9cell.h"
+ #include "k9ifo2.h"
+-#include "nav_types.h"
+-#include "ifo_types.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <QDir>
+ #ifndef BACKLITE
+ #include <kstandarddirs.h>
+--- a/src/main/k9copy.cpp
++++ b/src/main/k9copy.cpp
+@@ -40,7 +40,10 @@
+ #include "k9tools.h"
+ #include <QDockWidget>
+ #include "images.h"
+-#include "dvdread.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <QMenu>
+ #include "k9dialogs.h"
+ #include "k9assistant.h"
+--- a/src/player/k9play.cpp
++++ b/src/player/k9play.cpp
+@@ -14,15 +14,19 @@
+ #include "k9cell.h"
+ #include "k9vamps.h"
+ 
+-#include "dvdnav.h"
+-#include "dvdread.h"
++#define this _this
++#include <dvdnav.h>
++#undef this
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include <stdio.h>
+ #include <unistd.h>
+ #include <inttypes.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <fcntl.h>
+-#include "dvdread.h"
+ 
+ 
+ #ifdef BACKLITE
+@@ -351,7 +355,7 @@ void k9play::play() {
+     }
+ 
+     /* open dvdnav handle */
+-    if (dvdnav_open(&dvdnav, m_device.toUtf8(),NULL) != DVDNAV_STATUS_OK) {
++    if (dvdnav_open(&dvdnav, m_device.toUtf8()) != DVDNAV_STATUS_OK) {
+         writeOutput("ERR:Error on dvdnav_open\n");
+         emit sigError(i18n("Error opening the DVD"));
+         end();
+--- a/src/mpeg2/k9plaympeg2.cpp
++++ b/src/mpeg2/k9plaympeg2.cpp
+@@ -11,8 +11,9 @@
+ //
+ #include "k9plaympeg2.h"
+ #include "kdecmpeg2.h"
+-#include "dvdnav.h"
+-
++#define this _this
++#include <dvdnav.h>
++#undef this
+ #include <qapplication.h>
+ 
+ k9PlayMPEG2::k9PlayMPEG2()
+@@ -50,7 +51,7 @@ void k9PlayMPEG2::playTitle() {
+ 
+ 
+     /* open dvdnav handle */
+-    if (dvdnav_open(&dvdnav, m_device.toUtf8(),m_dvd) != DVDNAV_STATUS_OK) {
++    if (dvdnav_open(&dvdnav, m_device.toUtf8()) != DVDNAV_STATUS_OK) {
+         setError("ERR:Error on dvdnav_open\n");
+         return ;
+     }
+--- a/src/player/main.cpp
++++ b/src/player/main.cpp
+@@ -18,7 +18,10 @@
+  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+  ***************************************************************************/
+ 
+-#include "src/dvdnav/common.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include "k9copy.h"
+ #include "k9play.h"
+ #include <kapplication.h>
+--- a/main.cpp
++++ b/main.cpp
+@@ -18,7 +18,10 @@
+  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+  ***************************************************************************/
+ 
+-#include "src/dvdnav/common.h"
++#include <ifo_types.h>
++#include <ifo_read.h>
++#include <nav_read.h>
++#include <nav_types.h>
+ #include "k9copy.h"
+ #include "k9common.h"
+ #include <kapplication.h>

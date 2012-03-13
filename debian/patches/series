@@ -3,3 +3,4 @@ fix-ftbfs-kfreebsd.patch
 german-spelling-error.patch
 fix-desktop-files.patch
 link_libav_directly.patch
+link_libdvd_directly.patch
