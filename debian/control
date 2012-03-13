@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 8.9.0),
 	       libdvdread-dev,
 	       libdvdnav-dev,
 	       libx11-dev
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://k9copy.sourceforge.net/
 Vcs-Git: git://git.debian.org/git/pkg-kde/kde-extras/k9copy.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-kde/kde-extras/k9copy.git

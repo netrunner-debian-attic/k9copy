@@ -2,6 +2,7 @@ k9copy (2.3.8-3) unstable; urgency=low
 
   * Add libdvdread-dev and libdvdnav-dev to build-dependencies.
   * Add link_libdvd_directly.patch to use system libraries.
+  * Bump Standards-Version to 3.9.3: No further changes.
 
  -- Eshat Cakar <info@eshat.de>  Tue, 13 Mar 2012 20:00:14 +0100
 
