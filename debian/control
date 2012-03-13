@@ -11,6 +11,8 @@ Build-Depends: debhelper (>= 8.9.0),
 	       libavformat-dev,
 	       libavcodec-dev,
 	       libswscale-dev,
+	       libdvdread-dev,
+	       libdvdnav-dev,
 	       libx11-dev
 Standards-Version: 3.9.2
 Homepage: http://k9copy.sourceforge.net/

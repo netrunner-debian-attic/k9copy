@@ -1,3 +1,9 @@
+k9copy (2.3.8-3) unstable; urgency=low
+
+  * Add libdvdread-dev and libdvdnav-dev to build-dependencies.
+
+ -- Eshat Cakar <info@eshat.de>  Tue, 13 Mar 2012 20:00:14 +0100
+
 k9copy (2.3.8-2) unstable; urgency=low
 
   * Use ${xine-x:Depends} (Closes: #656909)
